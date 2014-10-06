@@ -40,8 +40,7 @@ def login():
     if cas_token_session_key in flask.session:
 
         if validate(flask.session[cas_token_session_key]):
-            redirect_url = flask.url_for(
-                current_app.config['CAS_AFTER_LOGIN'])
+            redirect_url = current_app.config['CAS_AFTER_LOGIN']
         else:
             del flask.session[cas_token_session_key]
 
